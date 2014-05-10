@@ -1,0 +1,74 @@
+% ===================================================================================== %
+%                                        Header                                         %
+% ===================================================================================== %
+\documentclass[10pt,t,xcolor=table]{UWMadBeamer}
+
+\usepackage{textcomp}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+
+\newenvironment{Itemize}
+    {\begin{itemize}\setlength{\itemsep}{0.8em}\setlength{\leftmargin}{0.0em}\setlength{\labelwidth}{0em}}
+    {\end{itemize}}
+
+
+
+%\title{On the Stability of Natural Circulation Loops with Phase Change}
+\Title{Version Control Introduction}
+\Institute{University of Wisconsin--Madison}
+\Department{Engineering Physics Department}
+\Author{Troy C. Haskin}
+\date{5/12/2014}
+
+\AtBeginSection[]{
+    \begin{frame}<beamer>
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+\AtBeginSubsection[]{
+    \ifnum\value{subsection} > 1
+        \begin{frame}<beamer>
+            \tableofcontents[currentsection,currentsubsection]
+        \end{frame}
+    \fi
+}
+
+
+\logo{\vspace{0.5em}\includegraphics[scale=0.2]{Picture1}}
+
+
+% =========================================================================== %
+%                              Document                                       %
+% =========================================================================== %
+\begin{document}
+
+
+% ======================================================= %
+%                         Titlepage                       %
+% ======================================================= %
+\begin{frame}
+    \titlepage
+\end{frame}
+
+
+% ======================================================= %
+%                         Outline                         %
+% ======================================================= %
+\section*{Outline}
+\begin{frame}
+    \tableofcontents
+\end{frame}
+
+
+
+% ======================================================= %
+%                     Preliminary Work                    %
+% ======================================================= %
+\section{Motivation}
+\section{Version Control}
+\section{Example}
+    
+\end{document}
+

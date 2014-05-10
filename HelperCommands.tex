@@ -1,0 +1,175 @@
+\newcommand{\rhok}{ \ensuremath{\alpha\rho\subs{\phi}}\xspace}
+\newcommand{\rhouk} {\ensuremath{\alpha\rhou\subs{\phi}}\xspace}
+\newcommand{\rhoik} {\ensuremath{\alpha\rhoi\subs{\phi}}\xspace}
+\newcommand{\alphak}{\ensuremath{\alpha\subs{\phi}\xspace}}
+\newcommand{\uk}{\ensuremath{u\subs{\phi}}\xspace}
+\newcommand{\ik}{\ensuremath{i\subs{\phi}}\xspace}
+\newcommand{\CVvol}[1][k]{\ensuremath{\Omega_\text{#1}}\xspace}
+\newcommand{\MCvol}[1][m]{\ensuremath{\Omega_\text{#1}}\xspace}
+\newcommand{\CVsurf}[1][k]{\ensuremath{\Gamma_\text{#1}}\xspace}
+\newcommand{\MCsurf}[1][m]{\ensuremath{\Gamma_\text{#1}}\xspace}
+
+\newcommand{\Density}{\ensuremath{\rho}}
+\newcommand{\Temperature}{\ensuremath{T}}
+\newcommand{\Pressure}{\ensuremath{P}}
+\newcommand{\IntEnergy}{\ensuremath{i}}
+\newcommand{\Entropy}{\ensuremath{s}}
+\newcommand{\Enthalpy}{\ensuremath{h}}
+\newcommand{\ThCond}{\kappa}
+\newcommand{\Viscosity}{\mu}
+\newcommand{\DiffCoef}{\ensuremath{D}}
+
+\newcommand{\isat}{\ensuremath{\IntEnergy\subs[\!]{sat}}}
+\newcommand{\Psat}{\ensuremath{\Pressure\subs[\!\!]{sat}}}
+\newcommand{\Tsat}{\ensuremath{\Temperature\subs[\!\!\:]{sat}}}
+\newcommand{\SubL}{\subs[\!\!\:]{\rule{0pt}{8pt}$\textstyle\ell$}}
+\newcommand{\SubG}{\subs[\!\!\:]{$\mathit{g}$}}
+
+\newcommand{\rhol}{\ensuremath{\rho\SubL}}
+\newcommand{\rhog}{\ensuremath{\rho\SubG}}
+\newcommand{\il}{\ensuremath{i\SubL}}
+\newcommand{\ig}{\ensuremath{i\SubG}}
+\newcommand{\rhoul}{\ensuremath{\rhou\SubL}}
+\newcommand{\rhoug}{\ensuremath{\rhou\SubG}}
+\newcommand{\rhoil}{\ensuremath{\rhoi\SubL}}
+\newcommand{\rhoig}{\ensuremath{\rhoi\SubG}}
+\newcommand{\alphal}{\ensuremath{\alpha\SubL}}
+\newcommand{\alphag}{\ensuremath{\alpha\SubG}}
+
+\newcommand{\tauSat}{\ensuremath{\tau\subs[\!\!\:]{sat}}}
+\newcommand{\deltaL}{\ensuremath{\delta\subs[\!\!\:]{\rule{0pt}{8pt}$\textstyle\ell$}}}
+\newcommand{\deltaG}{\ensuremath{\delta\subs[\!\!\:]{$\mathit{g}$}}}
+
+\newcommand{\rhoc}  {\ensuremath{\rho\subs{c}}}
+\newcommand{\Tc}    {\ensuremath{T\subs{c}}}
+
+\newcommand{\TCS}    {Thermodynamic Coexistence System}
+\newcommand{\TCSRef} {\hyperref[Eqn:TCS]{\TCS}}
+\newcommand{\MCS}    {Mechanical Coexistence System}
+\newcommand{\MCSRef} {\hyperref[Eqn:MCS]{\MCS}}
+
+\newcommand{\Afe}{\ensuremath{A\subs{\textsc{fe}}}}
+\newcommand{\HFE}{Helmholtz free energy}
+\newcommand{\EOS}{equation of state}
+
+\newcommand{\Space}{\ensuremath{z}}
+\newcommand{\Time}{\ensuremath{t}}
+\newcommand{\Speeds}{\ensuremath{\mathbf{\lambda}}}
+
+\newcommand{\qConRaw}{\mathbf{q}}
+\newcommand{\qCon}{\ensuremath{\qConRaw}}
+\newcommand{\qPer}{\ensuremath{\widehat{\qConRaw}}}
+\newcommand{\qSS} {\ensuremath{\qConRaw^0}}
+
+\newcommand{\ConSys}{
+    \Psi
+}
+
+\newcommand{\ConSysHEM}[1][HEM]{
+    \ConSys_{\!\mbox{\tiny #1}}
+}
+
+
+\newcommand{\Flux}{
+    \mathbf{F}
+}
+\newcommand{\Source}{
+    \mathbf{S}
+}
+
+\newcommand{\Weight}{\beta}
+
+
+\newcommand{\FluxFun}[2][]{
+    \mathbf{F}_{#1}\left(#2\right)
+}
+
+\newcommand{\SourceFun}[2][]{
+    \mathbf{S}_{#1}\left(#2\right)
+}
+
+\newcommand{\ResidualFun}[2][]{
+    \mathbf{R}_{#1}\left(#2\right)
+}
+
+\newcommand{\Jacobian}[1][]{
+    \mathbb{J}\subs{#1}
+}
+
+\newcommand{\JacobGen}[2]{
+  \Jacobian[{\scriptscriptstyle #1}](#2)
+}
+
+\newcommand{\JacobF}{
+    \Jacobian[F]
+}
+
+
+\newcommand{\JacobS}[1]{
+    \JacobGen{S}{#1}
+}
+
+\newcommand{\FluxSS}{
+    \mathbf{F}^{0}
+}
+
+\newcommand{\SourceSS}{
+    \mathbf{S}^{0}
+}
+
+\newcommand{\JacobFSS}[1][\,\,\!]{
+    \mathbf{J}_{\!{\scriptscriptstyle F}}^{0}{}#1
+}
+
+\newcommand{\JacobSSS}[1][\,\,\!]{
+    \mathbf{J}_{\!{\scriptscriptstyle S}}^{0}#1
+}
+
+\newcommand{\BigO}[1]{
+    \ensuremath{\mathcal{O}\!\left(#1\right)}
+}
+
+
+\newcommand{\Correl}[2]{
+    f^{\mbox{\scriptsize cor}}_{#1}\left(#2\right)
+}
+
+\newcommand{\LpNorm}[2][2]{
+    \ensuremath{\lvert\!\lvert#2\rvert\!\rvert_{#1}}
+}
+
+\newcommand{\Nudge}{
+    \ensuremath{\!\!\;}
+}
+
+\newcommand{\hfg}{
+    \ensuremath{h_{\mbox{\scriptsize fg}}}
+}
+
+\DeclareRobustCommand{\TH}  {thermal hydraulics}
+\DeclareRobustCommand{\THc} {Thermal hydraulics}
+\DeclareRobustCommand{\THcc}{Thermal Hydraulics}
+\DeclareRobustCommand{\THs} {thermal hydraulic}
+
+\DeclareRobustCommand{\CLaw}  {conservation law}
+\DeclareRobustCommand{\CLaws} {conservation laws}
+
+
+\newcommand{\rhou}{\ensuremath{\rho{u}}}
+\newcommand{\rhoi}{\ensuremath{\rho{i}}}
+
+\newcommand{\tr}{\ensuremath{{}\sups{\textsc{T}}}}
+\newcommand{\mdotloss}[1][]{\ensuremath{\dot{m}'''\subs[\!\!\!\!\!#1]{loss}}}
+\newcommand{\Keff}{\ensuremath{K\subs{eff}}}
+
+\newcommand{\POfRhoRhoi}{\ensuremath{P\left(\rho,\frac{\rhoi}{\rho}\right)}}
+
+
+\newcommand{\EqnSkip}[1][3em]{\ensuremath{\mbox{\rule{0.5em}{#1}}}\\}
+\newcommand{\psiEOS}{\ensuremath{\psi}\subs{\textsc{eos}}}
+\definecolor{Gray}{gray}{0.93}
+
+
+\newcommand{\LedineggCriterion}{$\tfrac{\partial\Delta{P}}{\partial(\rhou)}\bigr\rvert_{\text{int}} \le 
+                                 \tfrac{\partial\Delta{P}}{\partial(\rhou)}\bigr\rvert_{\text{ext}}$}
+                                
