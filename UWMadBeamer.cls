@@ -25,7 +25,7 @@
 \useinnertheme{circles}
 %
 %   Define UW-Madison Colors
-\definecolor{WiscRed}{cmyk}{3,100,66,12}
+\definecolor{WiscRed}{rgb}{160,0,0}
 %
 %   Define the color scheme
 \setbeamercolor{itemize item}{fg=WiscRed}
@@ -34,6 +34,7 @@
 %
 %   Remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
+
 %
 %   Adjust the footline to include the department name
 \setbeamertemplate{footline}{%
