@@ -37,19 +37,17 @@
 %
 %   Adjust the footline to include the department name
 \setbeamertemplate{footline}{%
-    \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em]{palette primary}%
-        \vskip0.3em%
-        \ifx \TheDepartmentShort \Undefined%
-            \TheAuthorShort{}\hfill \TheInstituteShort{}%
-        \else%
-            \TheAuthorShort{}\hfill \TheDepartmentShort{} | \TheInstituteShort{}%
-        \fi%
-        \vskip0.3em%
-    \end{beamercolorbox}%
-    %
+    \hfill%
+    \includegraphics[scale=0.50]{EPDepartmentLogo}%
+    \hskip0.60em{}
+
     \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em]{section in head/foot}%
         \vskip0.3em%
-        \TheTitleShort{} \hfill \insertframenumber/\inserttotalframenumber%
+        \TheAuthorShort{}%
+        \hfill%
+        \TheTitleShort{}%
+        \hfill%
+        \insertframenumber/\inserttotalframenumber%
         \vskip0.3em%
     \end{beamercolorbox}%
 }
