@@ -166,11 +166,51 @@
 % ======================================================= %
 \section{Version Control System}
 
+    \subsection{Introduction}
     \begin{frame}{What is it?}
+        \begin{description}
+            \item
+                [{\usebeamercolor[fg]{frametitle} Definition}]
+                {A system that records changes to a file or set of files over time so that you can recall specific versions later.}
+                \textsuperscript
+                    {{\usebeamercolor
+                        [fg]{frametitle}
+                        \href
+                            {http://git-scm.com/book/en/Getting-Started-About-Version-Control}
+                            {src}}}
+        \end{description}
         
+        Features:
+        \begin{Itemize}
+            \item{Revert a file or an entire project back to a previous state}
+            \item{Review changes made over time}
+            \item{See who last modified something}
+            \item{Create an off-shoot from a current project state (branching)}
+            \item{Create a brand new project from a current project (forking)}
+            \item{Work locally and save to an online system (distributed systems)}
+        \end{Itemize}
+    \end{frame}
+
+    \begin{frame}{Advantages / Disadvantages}
+        Advantages
+        \begin{Itemize}
+            \item{History of the project is automatically cataloged}
+            \item{All versions of the project are saved and ID-ed automatically}
+            \item{Line-by-line and person-by-person reviewable history.}
+        \end{Itemize}
+        
+        Disadvantages:
+        \begin{Itemize}
+            \item{Can't see line-by-line changes for binary files (\eg{}, \texttt{*.docx} or \texttt{*.pdf})}
+            \item{Not good for saving humongous files (large binary data files shouldn't be versioned)}
+            \item{Requires discipline and effort to log and sync changes}
+            \item{Becomes much, much more complicated for larger projects (not a worry for us)}
+        \end{Itemize}
     \end{frame}
 
 
+    \subsection{How it Works}
+    
 
 % ======================================================= %
 %                     Git and GitHub                      %
