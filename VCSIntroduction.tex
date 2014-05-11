@@ -10,7 +10,7 @@
 
 
 \newenvironment{Itemize}
-    {\begin{itemize}\setlength{\itemsep}{0.8em}\setlength{\leftmargin}{0.0em}\setlength{\labelwidth}{0em}}
+    {\begin{itemize}\setlength{\itemsep}{0.50em}\setlength{\leftmargin}{0.0em}\setlength{\labelwidth}{0em}}
     {\end{itemize}}
 
 
@@ -66,11 +66,115 @@
 
 
 % ======================================================= %
-%                     Preliminary Work                    %
+%                         Motivation                      %
 % ======================================================= %
 \section{Motivation}
-\section{Version Control}
+
+    \subsection{Paper Example}
+
+    \begin{frame}{Paper Workflow}
+        A typical workflow of writing a paper:
+        \begin{Itemize}
+            \item{Start with an idea/outline}
+            \item{Make a draft}
+            \item{Proof}
+            \item{Edit}
+            \item{Repeat until done}
+        \end{Itemize}
+    \end{frame}
+
+    \begin{frame}{Workflow Shortcomings}
+        Individual paper:
+        \begin{Itemize}
+            \item{Forget what changes were and were not made}
+            \item{Make big changes but like the way it was}
+            \item{Want to use the material again but alter for a different audience, journal, etc.}
+        \end{Itemize}
+        
+        Group paper:
+        \begin{Itemize}
+            \item{Don't know what changes were and were not made}
+            \item{Not sure what version of the paper you or others have}
+            \item{Not sure who or what was added to the version in-use}
+        \end{Itemize}
+    \end{frame}
+
+    \begin{frame}{Solution}
+        A common solution not using a version control system (VCS):
+
+        \begin{Itemize}
+            \item{Make a new directory and name appropriately}
+            \begin{Itemize}
+                \item{\texttt{NuclearEngineeringAndDesign}}
+                \item{\texttt{AnnalsOfNuclearEnergy}}
+            \end{Itemize}
+            \item{Make a new copy of the file and name it something different}
+            \begin{Itemize}
+                \item{\texttt{AwesomePaper-Draft1.docx}}
+                \item{\texttt{AwesomePaper-AdvisorsNotes.docx}}
+                \item{\texttt{AwesomePaper-Draft2NeedCitations.docx}}
+                \item{\texttt{AwesomePaper-Final.docx}}
+                \item{\texttt{AwesomePaper-FinalAdvisorNotes.docx}}
+                \item{\texttt{AwesomePaper-FinalFinal.docx}}
+            \end{Itemize}
+        \end{Itemize}
+    \end{frame}
+
+    \begin{frame}{Solution Shortcomings}
+        \begin{Itemize}
+            \item{Proliferation of files and directories}
+            \item{No automatic list of changes; ``proper'' naming attempts to correct this (\eg{}, \texttt{Draft2NeedCitations})}
+            \item{Ability to go back to an earlier version would complicate naming}
+            \item{Collaboration issues still not addressed}
+        \end{Itemize}
+    \end{frame}
+
+    \subsection{Other Examples}
+
+    \begin{frame}{RELAP/MELCOR Inputs:}
+        \begin{Itemize}
+            \item{Build the model by slowly adding control volumes and heat structures}
+            \item{Adjust geometry input as more information becomes available}
+            \item{Correct issues as they're discovered}
+            \item{Might break things and need to find a older, working version}
+            \item{\textbf{Re-use the input for multiple different simulations or numerical experiments}}
+        \end{Itemize}
+    \end{frame}
+
+
+    \begin{frame}{Writing Programs}
+        \begin{Itemize}
+            \item{Start simple and add more functionality}
+            \item{Fix bugs as they're discovered}
+            \item{Might break things and need to find a older, working version}
+            \item{Someone else might want to leap off of the work already done but apply it differently}
+        \end{Itemize}
+    \end{frame}
+
+    \begin{frame}{Same Problems}
+        \begin{Itemize}
+            \item{These examples, and many more, all have the problems presented by the paper example.}
+            \item{The problems only become worse as the work becomes larger or more people become involved.}
+        \end{Itemize}
+        
+        What's the solution?
+    \end{frame}
+
+
+
+% ======================================================= %
+%                   Version Control System                %
+% ======================================================= %
+\section{Version Control System}
+
+
+
+% ======================================================= %
+%                     Git and GitHub                      %
+% ======================================================= %
 \section{Git and GitHub}
-    
+
+
+
 \end{document}
 
