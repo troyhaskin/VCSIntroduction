@@ -29,6 +29,7 @@
 %
 %   Define the color scheme
 \setbeamercolor{itemize item}{fg=WiscRed}
+\setbeamercolor{enumerate item}{fg=WiscRed}
 \setbeamercolor{itemize subitem}{fg=WiscRed}
 \setbeamercolor{section number projected}{bg=WiscRed}
 %

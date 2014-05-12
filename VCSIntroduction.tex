@@ -36,9 +36,7 @@
 }
 
 
-\logo{%
-    \vspace{0.5em}%
-}
+\graphicspath{{./Graphics/}}
 
 
 % =========================================================================== %
@@ -228,8 +226,26 @@
         \end{description}
     \end{frame}
 
-    \begin{frame}{Workflow}
-        
+    \begin{frame}{Example Workflow}
+        \begin{columns}[T]
+            \begin{column}[T]{0.48\textwidth}
+                \centering
+                    \includegraphics<1>[scale=0.43]{Workflow1}
+                    \includegraphics<2>[scale=0.43]{Workflow2}
+                    \includegraphics<3>[scale=0.43]{Workflow3}
+                    \includegraphics<4>[scale=0.43]{Workflow4}
+            \end{column}
+            \begin{column}[T]{0.48\textwidth}
+                History:
+                \begin{enumerate}
+                    \item<2->{'Notes.txt' created.}
+                    \item<3->{Added new note to 'Notes.txt'.}
+                    \item<4->{Added new file 'Classes.txt'. }
+                \end{enumerate}
+
+                \only<1>{\hfill\textit{REPO Info. initially empty}}
+            \end{column}
+        \end{columns}
     \end{frame}
 
 % ======================================================= %
