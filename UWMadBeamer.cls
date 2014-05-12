@@ -15,6 +15,7 @@
 \RequirePackage{lmodern}
 \RequirePackage{ifthen}
 \RequirePackage{amsmath}
+\RequirePackage{microtype}
 %
 %   Compress
 \beamer@compresstrue
@@ -25,10 +26,10 @@
 \useinnertheme{circles}
 %
 %   Define UW-Madison Colors
-\definecolor{WiscRed}{rgb}{160,0,0}
+\definecolor{WiscRed}{rgb}{10,0,0}
 %
 %   Define the color scheme
-\setbeamercolor{itemize item}{fg=WiscRed}
+\setbeamercolor{item}{fg=darkred}
 \setbeamercolor{enumerate item}{fg=WiscRed}
 \setbeamercolor{itemize subitem}{fg=WiscRed}
 \setbeamercolor{section number projected}{bg=WiscRed}

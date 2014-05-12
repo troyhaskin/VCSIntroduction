@@ -48,6 +48,7 @@
 % ======================================================= %
 %                         Titlepage                       %
 % ======================================================= %
+\section{Start}
 \begin{frame}
     \titlepage
 \end{frame}
@@ -199,7 +200,7 @@
         
         Disadvantages:
         \begin{Itemize}
-            \item{Can't see line-by-line changes for binary files (\eg{}, \texttt{*.docx} or \texttt{*.pdf})}
+            \item{Can't see line-by-line changes for binary files (\eg{}, \texttt{docx} or image files)}
             \item{Not good for saving humongous files (large binary data files shouldn't be versioned)}
             \item{Requires discipline and effort to log and sync changes}
             \item{Becomes much, much more complicated for larger projects (not a worry for us)}
@@ -212,15 +213,15 @@
         \begin{description}
             \setlength{\itemsep}{0.65em}
             \item[{\usebeamercolor[fg]{frametitle} Repository}]
-                {A directory that hold all project files and VCS information.}
+                {A directory that holds all project files and VCS information.}
             \item[{\usebeamercolor[fg]{frametitle} Commit}]
-                {A submission changes from the user to the VCS; this creates a new version and save the previous state earlier in the history}
+                {A submission of changes from the user to the VCS; this creates a new version and saves the previous state in the history}
             \item[{\usebeamercolor[fg]{frametitle} Commit Message}]
                 {A short/long description of the changes present in the commit.}
             \item[{\usebeamercolor[fg]{frametitle} Branch}]
-                {A new, separate line of history starting from a certain version; changes cane be made to a branch without affecting what it was bracnhed from}
+                {A new, separate line of history starting from a certain version; changes can be made to a branch without affecting what it was branched from}
             \item[{\usebeamercolor[fg]{frametitle} Diff}]
-                {A comparison of two files with line-by-line difference highlighted}
+                {A comparison of two files with line-by-line differences highlighted}
             \item[{\usebeamercolor[fg]{frametitle} Sync/Push}]
                 {A synchronization of a local repository with a non-local one}
         \end{description}
@@ -271,12 +272,12 @@
         }
     \end{frame}
 
-    \begin{frame}[c]{Ignoring Files}
+    \begin{frame}{Ignoring Files}
         As was stated before, versioning large binary files is not good practice.
         Large restart or plot files should be stored elsewhere.
-
+        \vfill
         In order to accomplish this, all VCSs have a manner of ignoring files.
-
+        \vfill
         For Git, what we will cover next, it involves editing the \texttt{.gitignore} file.
     \end{frame}
 
@@ -292,6 +293,8 @@
 %                     Git and GitHub                      %
 % ======================================================= %
 \section{Git and GitHub}
+
+    \subsection{}
     \begin{frame}{The Program and the Website}
         \begin{description}
             \setlength{\itemsep}{0.65em}
@@ -303,31 +306,52 @@
     \end{frame}
 
 
+    \subsection{}
     \begin{frame}{GitHub Applications}
         \begin{description}
             \setlength{\itemsep}{0.65em}
-            \item[{\usebeamercolor[fg]{frametitle} GitHub for Windows}]
+            \item[{\usebeamercolor[fg]{frametitle} GitHubWindows}]
                 {An application for Windows 7/8 that syncs repositories between a computer and GitHub}
-            \item[{\usebeamercolor[fg]{frametitle} GitHub for Mac}]
+            \item[{\usebeamercolor[fg]{frametitle} GitHubMac}]
                 {An application for OSX 10.7+ that syncs repositories between a computer and GitHub}
         \end{description}
-        Both programs allows for creation of repositories, commits, branching, merging, and more.
+        Both programs allow for creation, commits, branching, merging, and more.
     \end{frame}
 
+    \subsection{}
     \begin{frame}[c]{My GitHub For Windows}
         \includegraphics<1>[scale=0.2125]{GitHubForWindowsMain}
         \includegraphics<2>[scale=0.2125]{GitHubForWindowsVCS}
     \end{frame}
 
 
-    \begin{frame}[c]{End-of-Line}
+\section{End}
+    \begin{frame}{Thank You!}
 
-        \begin{center}
-            {
-            \usebeamercolor[fg]{frametitle}
-            \textsc{Thank You}
+        Links:
+        \begin{Itemize}
+            \setlength{\itemsep}{2em}
+            \item   {
+                \usebeamercolor[fg]{frametitle}
+                \href{https://github.com/troyhaskin} {Troy's GitHub Page}
             }
-        \end{center}
+            \item   {
+                \usebeamercolor[fg]{frametitle}
+                \href{https://github.com/ThermalHydraulicsLab} {THL's GitHub Page}
+            }
+            \item   {
+                \usebeamercolor[fg]{frametitle}
+                \href{https://windows.github.com/} {GitHubWindows}
+            }
+            \item   {
+                \usebeamercolor[fg]{frametitle}
+                \href{https://mac.github.com/} {GitHubMac}
+            }
+            \item   {
+                \usebeamercolor[fg]{frametitle}
+                \href{https://raw.githubusercontent.com/ThermalHydraulicsLab/UWMadisonExperiment-RELAP5/master/.gitignore} {RELAP/MELCOR \texttt{.gitignore} file}
+            }
+        \end{Itemize}
 
     \end{frame}
 
