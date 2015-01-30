@@ -15,25 +15,11 @@
 
 
 
-%\title{On the Stability of Natural Circulation Loops with Phase Change}
-\Title{Version Control Introduction}
-\Institute{University of Wisconsin--Madison}
-\Department{Engineering Physics Department}
-\Author{Troy C. Haskin}
+\title{Version Control Introduction}
+\institute{University of Wisconsin--Madison}
+\department{Engineering Physics Department}
+\author{Troy C. Haskin}
 \date{5/12/2014}
-
-\AtBeginSection[]{
-    \begin{frame}<beamer>
-        \tableofcontents[currentsection]
-    \end{frame}
-}
-\AtBeginSubsection[]{
-    \ifnum\value{subsection} > 1
-        \begin{frame}<beamer>
-            \tableofcontents[currentsection,currentsubsection]
-        \end{frame}
-    \fi
-}
 
 
 \graphicspath{{./Graphics/}}
@@ -48,7 +34,6 @@
 % ======================================================= %
 %                         Titlepage                       %
 % ======================================================= %
-\section{Start}
 \begin{frame}
     \titlepage
 \end{frame}
@@ -121,7 +106,7 @@
     \begin{frame}{Solution Shortcomings}
         \begin{Itemize}
             \item{Proliferation of files and directories}
-            \item{No automatic list of changes; ``proper'' naming attempts to correct this (\eg{}, \texttt{Draft2NeedCitations})}
+            \item{No automatic list of changes; ``proper'' naming attempts to correct this (e.g., \texttt{Draft2NeedCitations})}
             \item{Ability to go back to an earlier version would complicate naming}
             \item{Collaboration issues still not addressed}
         \end{Itemize}
@@ -200,7 +185,7 @@
         
         Disadvantages:
         \begin{Itemize}
-            \item{Can't see line-by-line changes for binary files (\eg{}, \texttt{docx} or image files)}
+            \item{Can't see line-by-line changes for binary files (e.g., \texttt{docx} or image files)}
             \item{Not good for saving humongous files (large binary data files shouldn't be versioned)}
             \item{Requires discipline and effort to log and sync changes}
             \item{Becomes much, much more complicated for larger projects (not a worry for us)}

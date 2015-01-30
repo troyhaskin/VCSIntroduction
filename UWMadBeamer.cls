@@ -1,230 +1,160 @@
 %
+%   Load expl3 package.
+\RequirePackage{expl3}[2013/07/28]
+\@ifpackagelater{expl3}{2013/07/28} {} {%
+    \PackageError{UWMadThesis}{Version of l3kernel is too old}
+      {%
+        Please install an up to date version of l3kernel\MessageBreak
+        using your TeX package manager or from CTAN.
+      }%
+    \endinput
+}%
 %
+%   Turn on expl3.
+\ExplSyntaxOn
 %
-%
+%   Declare the LaTeX format needed
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{UWMadBeamer}%
-    [2014/05/10 UW-Madison presentation class]%
 %
-%   Load beamer
-\LoadClass[10pt,t,xcolor=table]{beamer}
+%   Provide the class
+\ProvidesClass{UWMadBeamer}
+    [2014/05/10~v0.1~UW-Madison~presentation~class]
 %
-%   Correct appendix number problem
+%   Pass all user options directly to beamer
+\DeclareOption*{
+    \PassOptionsToClass{\CurrentOption}{beamer}
+}
+%
+%   Declare defaults and process the options
+\ExecuteOptions{10pt,t,xcolor=table}
+\ProcessOptions
+%
+%   load beamer
+\LoadClass{beamer}[2013/01/01]
+%
+%   Load packages
+\RequirePackage{xparse}
 \RequirePackage{appendixnumberbeamer}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
-\RequirePackage{ifthen}
-\RequirePackage{amsmath}
 \RequirePackage{microtype}
 %
-%   Compress
+%   Force compression of miniframes.
 \beamer@compresstrue
 %
-%   Define the layout theme
+%   Define the layout and color themes
 \useoutertheme{miniframes}
 \usecolortheme{beaver}
 \useinnertheme{circles}
 %
-%   Define UW-Madison Colors
-\definecolor{WiscRed}{rgb}{10,0,0}
-%
-%   Define the color scheme
-\setbeamercolor{item}{fg=darkred}
-\setbeamercolor{enumerate item}{fg=WiscRed}
-\setbeamercolor{itemize subitem}{fg=WiscRed}
-\setbeamercolor{section number projected}{bg=WiscRed}
+%   Modify the color scheme a bit
+\setbeamercolor{item}{parent=palette~tertiary}
+\setbeamercolor{enumerate~item}{parent=palette~tertiary}
+\setbeamercolor{itemize~subitem}{parent=palette~tertiary}
+\setbeamercolor{section~number~projected}{parent=palette~tertiary}
 %
 %   Remove navigation symbols
-\setbeamertemplate{navigation symbols}{}
-
+\setbeamertemplate{navigation~symbols}{}
+%
+%
+%
+%
+%
+%
+\tl_new:N \g_UWMadBeamer_Title_Short_tl
+\tl_new:N \g_UWMadBeamer_Title_Long_tl
+\tl_new:N \g_UWMadBeamer_Author_Short_tl
+\tl_new:N \g_UWMadBeamer_Author_Long_tl
+\tl_new:N \g_UWMadBeamer_Institution_Short_tl
+\tl_new:N \g_UWMadBeamer_Institution_Long_tl
+\tl_new:N \g_UWMadBeamer_Department_Short_tl
+\tl_new:N \g_UWMadBeamer_Department_Long_tl
+\tl_new:N \g_UWMadBeamer_Program_Short_tl
+\tl_new:N \g_UWMadBeamer_Program_Long_tl
+\tl_new:N \g_UWMadBeamer_Logo_FileName_tl
+%
+%
+\cs_new_eq:NN \__UWMadBeamer_Author:nn     \author
+\cs_new_eq:NN \__UWMadBeamer_Title:nn      \title
+\cs_new_eq:NN \__UWMadBeamer_Institute:nn  \institute
+\cs_undefine:N \author
+\cs_undefine:N \title
+\cs_undefine:N \institute
+%
+%
+% Identification commands
+\DeclareDocumentCommand \author { o m } {
+    \IfNoValueTF {#1} {
+        \tl_gset:Nn \g_UWMadBeamer_Author_Short_tl {#2}
+        \tl_gset:Nn \g_UWMadBeamer_Author_Long_tl  {#2}
+        \__UWMadBeamer_Author:nn[#2]{#2}
+    } {
+        \tl_gset:Nn \g_UWMadBeamer_Author_Short_tl {#1}
+        \tl_gset:Nn \g_UWMadBeamer_Author_Long_tl  {#2}
+        \__UWMadBeamer_Author:nn[#1]{#2}
+    }
+}
+\DeclareDocumentCommand \institute { o m } {
+    \IfNoValueTF {#1} {
+        \tl_gset:Nn \g_UWMadBeamer_Institute_Short_tl {#2}
+        \tl_gset:Nn \g_UWMadBeamer_Institute_Long_tl  {#2}
+        \__UWMadBeamer_Institute:nn[#2]{#2}
+    } {
+        \tl_gset:Nn \g_UWMadBeamer_Institute_Short_tl {#1}
+        \tl_gset:Nn \g_UWMadBeamer_Institute_Long_tl  {#2}
+        \__UWMadBeamer_Institute:nn[#1]{#2}
+    }
+}
+\DeclareDocumentCommand \title { o m } {
+    \IfNoValueTF {#1} {
+        \tl_gset:Nn \g_UWMadBeamer_Title_Short_tl {#2}
+        \tl_gset:Nn \g_UWMadBeamer_Title_Long_tl  {#2}
+        \__UWMadBeamer_Title:nn[#2]{#2}
+    } {
+        \tl_gset:Nn \g_UWMadBeamer_Title_Short_tl {#1}
+        \tl_gset:Nn \g_UWMadBeamer_Title_Long_tl  {#2}
+        \__UWMadBeamer_Title:nn[#1]{#2}
+    }
+}
+\DeclareDocumentCommand \department { o m } {
+    \IfNoValueTF {#1} {
+        \tl_gset:Nn \g_UWMadBeamer_Department_Short_tl {#2}
+        \tl_gset:Nn \g_UWMadBeamer_Department_Long_tl  {#2}
+    } {
+        \tl_gset:Nn \g_UWMadBeamer_Department_Short_tl {#1}
+        \tl_gset:Nn \g_UWMadBeamer_Department_Long_tl  {#2}
+    }
+}
+%
+%
+%
 %
 %   Adjust the footline to include the department name
-\setbeamertemplate{footline}{%
-    \hfill%
-    \includegraphics[scale=0.50]{EPDepartmentLogo}%
-    \hskip0.60em{}
-
-    \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em]{section in head/foot}%
-        \vskip0.3em%
-        \TheAuthorShort{}%
-        \hfill%
-        \TheTitleShort{}%
-        \hfill%
-        \insertframenumber/\inserttotalframenumber%
-        \vskip0.3em%
-    \end{beamercolorbox}%
+\setbeamertemplate{footline}{
+    \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em]{palette~primary}
+        \skip_vertical:n{0.3em}
+        \g_UWMadBeamer_Department_Short_tl{}
+        \tex_hfill:D{}
+        \g_UWMadBeamer_Institute_Short_tl{}
+        \skip_vertical:n{0.3em}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em]{palette~tertiary}
+        \skip_vertical:n{0.3em}
+        \g_UWMadBeamer_Author_Short_tl{}
+        \tex_hfill:D{}
+        \g_UWMadBeamer_Title_Short_tl{}
+        \tex_hfill:D{}
+        \insertframenumber/\inserttotalframenumber
+        \skip_vertical:n{0.3em}
+    \end{beamercolorbox}
+}
+%
+\AtBeginSubsection[]{
+    \begin{frame}<beamer>
+        \tableofcontents[currentsection,currentsubsection]
+    \end{frame}
 }
 %
 \setlength{\parskip}{0.5em}
 %
-%
-%
-%
-%
-%
-%
-%
-%
-%
-
-% ========================================================================== %
-%                             Math Commands                                  %
-% ========================================================================== %
-
-
-% ---------------------------------------------------------------------------- %
-%                                Square Root Tail                              %
-% ---------------------------------------------------------------------------- %
-\DeclareRobustCommand{\NthRootInTeX}[2]{\root #1 \of {#2\:\!}}
-
-\DeclareRobustCommand{\SquareRootCore}[2]{
-    \setbox0=\hbox{\ensuremath{\NthRootInTeX{#1}{#2}}}
-    \dimen0=\ht0
-    \advance\dimen0-0.2\ht0
-    \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}
-    {\box0\lower0.47pt\box2}
-}
-
-\DeclareRobustCommand{\Sqrt}[2][]{
-    \mathchoice{\SquareRootCore{#1}{#2}}
-               {\SquareRootCore{#1}{#2}}
-               {\SquareRootCore{#1}{#2}}
-               {\SquareRootCore{#1}{#2}}
-}
-
-
-
-% ---------------------------------------------------------------------------- %
-%                              Derivative Commands                             %
-% ---------------------------------------------------------------------------- %
-\newcommand{\bigdiffn}[4]{\dfrac{#1{}^{#4}}{#1 #3{}^{#4}} \left[ #2 \right]}
-\newcommand{\gendiffn}[4]{\dfrac{#1{}^{#4} #2}{#1 #3{}^{#4}}}
-
-\newcommand{\diff}[3][d]{
-    \ifthenelse{\equal{p}{#1}}{
-        \gendiffn{\partial}{#2}{#3}{}
-    }{
-        \ifthenelse{\equal{b}{#1}}{
-            \bigdiffn{d}{#2}{#3}{}
-        }{
-            \ifthenelse{\equal{bp}{#1}}{
-                \bigdiffn{\partial}{#2}{#3}{}
-            }{
-                \gendiffn{d}{#2}{#3}{}
-            }
-        }
-    }
-}
-
-\newcommand{\diffn}[4][d]{
-    \ifthenelse{\equal{p}{#1}}{
-        \gendiffn{\partial}{#2}{#3}{#4}
-    }{
-        \ifthenelse{\equal{b}{#1}}{
-            \bigdiffn{#2}{#3}{#4}
-        }{
-            \ifthenelse{\equal{bp}{#1}}{
-                \bigdiffn{\partial}{#2}{#3}{#4}
-            }{
-                \gendiffn{#1}{#2}{#3}{#4}
-            }
-        }
-    }
-}
-
-\newcommand{\bigdiff}   [2] {\diff[b]{#1}{#2}}
-\newcommand{\pdiff}     [2] {\diff[p]{#1}{#2}}
-\newcommand{\bigpdiff}  [2] {\diff[bp]{#1}{#2}}
-\let\frac\dfrac
-\newcommand{\subs}      [2][]{\ensuremath{{}_{#1\text{\scriptsize #2}}}}
-\newcommand{\sups}      [2][]{\ensuremath{{}^{#1\text{\scriptsize #2}}}}
-\newcommand{\oneo}      [1]  {\ensuremath{\frac{1}{#1}}}
-\newcommand{\Skip}[1][0.45em]{\\[#1]}
-\DeclareMathOperator{\Ln}{Ln}
-\DeclareMathOperator{\Abs}{Abs}
-\DeclareMathOperator{\Inf}{Inf}
-\DeclareMathOperator{\Exp}{Exp}
-\DeclareMathOperator{\Rez}{R}
-\let\originalleft\left
-\let\originalright\right
-\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft\;\!}
-\def\left#1{\mathopen{}\mathclose\bgroup\originalleft#1\:\!}
-\def\right#1{\aftergroup\egroup\:\!\originalright#1}
-
-\newcommand{\Del}[1][]{
-    \partial_{#1}
-}
-
-\newcommand{\Vector}[1]{
-    \underline{#1}
-}
-
-\newcommand{\Tensor}[1]{
-    \underline{\underline{#1}}
-}
-
-
-\newcommand{\etal}{et al.}
-\newcommand{\etc}{etc.}
-\newcommand{\eg}{e.g.}
-\newcommand{\ie}{i.e.}
-\newlength{\LengthOfArgument}
-\newcommand{\IfEmpty}[3]{
-    \settowidth{\LengthOfArgument}{#1}
-    \ifdim\LengthOfArgument=0pt
-        #2
-    \else
-        #3
-    \fi
-}
-%
-% Identification commands
-\newcommand{\Author}[2][]{
-
-    \IfEmpty{#1}{
-        \def\TheAuthorShort{#2}
-        \def\TheAuthorLong{#2}
-        \author{#2}
-    }{
-        \def\TheAuthorShort{#1}
-        \def\TheAuthorLong{#2}
-        \author[#1]{#2}
-    }
-}
-
-\newcommand{\Institute}[2][]{
-
-    \IfEmpty{#1}{
-        \def\TheInstituteShort{#2}
-        \def\TheInstituteLong{#2}
-        \institute{#2}
-    }{
-        \def\TheInstituteShort{#1}
-        \def\TheInstituteLong{#2}
-        \institute[#1]{#2}
-    }
-}
-
-\newcommand{\Title}[2][]{
-
-    \IfEmpty{#1}{
-        \def\TheTitleShort{#2}
-        \def\TheTitleLong{#2}
-        \title{#2}
-    }{
-        \def\TheTitleShort{#1}
-        \def\TheTitleLong{#2}
-        \title[#1]{#2}
-    }
-}
-
-\newcommand{\Department}[2][]{
-
-    \IfEmpty{#1}{
-        \def\TheDepartmentShort{#2}
-        \def\TheDepartmentLong{#2}
-    }{
-        \def\TheDepartmentShort{#1}
-        \def\TheDepartmentLong{#2}
-    }
-}
+\ExplSyntaxOff
