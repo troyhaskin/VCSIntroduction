@@ -38,123 +38,129 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{lmodern}
 \RequirePackage{microtype}
-%
-%   Force compression of miniframes.
-\beamer@compresstrue
+\RequirePackage{graphicx}
 %
 %   Define the layout and color themes
-\useoutertheme{miniframes}
-\usecolortheme{beaver}
+\usecolortheme{UWMad}
+\useoutertheme{default}
 \useinnertheme{circles}
 %
 %   Modify the color scheme a bit
-\setbeamercolor{item}{parent=palette~tertiary}
-\setbeamercolor{enumerate~item}{parent=palette~tertiary}
-\setbeamercolor{itemize~subitem}{parent=palette~tertiary}
-\setbeamercolor{section~number~projected}{parent=palette~tertiary}
 %
 %   Remove navigation symbols
 \setbeamertemplate{navigation~symbols}{}
 %
 %
 %
-%
-%
-%
-\tl_new:N \g_UWMadBeamer_Title_Short_tl
-\tl_new:N \g_UWMadBeamer_Title_Long_tl
-\tl_new:N \g_UWMadBeamer_Author_Short_tl
-\tl_new:N \g_UWMadBeamer_Author_Long_tl
-\tl_new:N \g_UWMadBeamer_Institution_Short_tl
-\tl_new:N \g_UWMadBeamer_Institution_Long_tl
-\tl_new:N \g_UWMadBeamer_Department_Short_tl
-\tl_new:N \g_UWMadBeamer_Department_Long_tl
-\tl_new:N \g_UWMadBeamer_Program_Short_tl
-\tl_new:N \g_UWMadBeamer_Program_Long_tl
-\tl_new:N \g_UWMadBeamer_Logo_FileName_tl
-%
-%
-\cs_new_eq:NN \__UWMadBeamer_Author:nn     \author
-\cs_new_eq:NN \__UWMadBeamer_Title:nn      \title
-\cs_new_eq:NN \__UWMadBeamer_Institute:nn  \institute
-\cs_undefine:N \author
-\cs_undefine:N \title
-\cs_undefine:N \institute
-%
-%
-% Identification commands
-\DeclareDocumentCommand \author { o m } {
-    \IfNoValueTF {#1} {
-        \tl_gset:Nn \g_UWMadBeamer_Author_Short_tl {#2}
-        \tl_gset:Nn \g_UWMadBeamer_Author_Long_tl  {#2}
-        \__UWMadBeamer_Author:nn[#2]{#2}
-    } {
-        \tl_gset:Nn \g_UWMadBeamer_Author_Short_tl {#1}
-        \tl_gset:Nn \g_UWMadBeamer_Author_Long_tl  {#2}
-        \__UWMadBeamer_Author:nn[#1]{#2}
-    }
-}
-\DeclareDocumentCommand \institute { o m } {
-    \IfNoValueTF {#1} {
-        \tl_gset:Nn \g_UWMadBeamer_Institute_Short_tl {#2}
-        \tl_gset:Nn \g_UWMadBeamer_Institute_Long_tl  {#2}
-        \__UWMadBeamer_Institute:nn[#2]{#2}
-    } {
-        \tl_gset:Nn \g_UWMadBeamer_Institute_Short_tl {#1}
-        \tl_gset:Nn \g_UWMadBeamer_Institute_Long_tl  {#2}
-        \__UWMadBeamer_Institute:nn[#1]{#2}
-    }
-}
-\DeclareDocumentCommand \title { o m } {
-    \IfNoValueTF {#1} {
-        \tl_gset:Nn \g_UWMadBeamer_Title_Short_tl {#2}
-        \tl_gset:Nn \g_UWMadBeamer_Title_Long_tl  {#2}
-        \__UWMadBeamer_Title:nn[#2]{#2}
-    } {
-        \tl_gset:Nn \g_UWMadBeamer_Title_Short_tl {#1}
-        \tl_gset:Nn \g_UWMadBeamer_Title_Long_tl  {#2}
-        \__UWMadBeamer_Title:nn[#1]{#2}
-    }
-}
-\DeclareDocumentCommand \department { o m } {
-    \IfNoValueTF {#1} {
-        \tl_gset:Nn \g_UWMadBeamer_Department_Short_tl {#2}
-        \tl_gset:Nn \g_UWMadBeamer_Department_Long_tl  {#2}
-    } {
-        \tl_gset:Nn \g_UWMadBeamer_Department_Short_tl {#1}
-        \tl_gset:Nn \g_UWMadBeamer_Department_Long_tl  {#2}
-    }
+%   Headline is a simple listing of section names (no pips)
+\setbeamertemplate{headline}{%
+ \begin{beamercolorbox}[ht=0.029\paperheight]{section~in~head/foot}%
+    \usebeamerfont{section~in~head/foot}%
+    \insertsectionnavigationhorizontal{0.99\paperwidth}{}{}
+    \vbox{}\vskip0.001\paperheight
+  \end{beamercolorbox}
 }
 %
 %
 %
+%   Frametitle includes logo on far right of slide
+\defbeamertemplate*{frametitle}{UWMadDefault}[1][left]{
+    \nointerlineskip
+    %
+    %   Total width
+    \@tempdima=\textwidth
+    \advance\@tempdima by\beamer@leftmargin
+    \advance\@tempdima by\beamer@rightmargin
+    %
+    %   Encompassing box
+    \begin{beamercolorbox}
+        [wd=\the\@tempdima,ht=0.098666\paperheight,dp=0pt]{frametitle}
+        %
+        %   Width/box for text
+        \advance\@tempdima by -0.400\paperwidth
+        \begin{beamercolorbox}
+            [leftskip=0.01\paperwidth,rightskip=0.01\paperwidth,
+            wd=\the\@tempdima,ht=0.098666\paperheight,dp=0pt]
+            {frametitle}
+            \usebeamerfont{frametitle}
+            \usebeamercolor{frametitle}
+            \strut\insertframetitle\strut
+            \vbox{}\vskip0.010\paperheight
+        \end{beamercolorbox}
+        %
+        %   Box for institution
+        \begin{beamercolorbox}
+            [right,rightskip=0.01\paperwidth,
+            wd=0.400\paperwidth,ht=0.098666\paperheight,dp=0pt]
+            {frametitle}
+            \raisebox{0.0030\paperheight}{
+                \includegraphics[keepaspectratio=true,height=0.099\paperheight]{EPLogoHQ_LeftWhite}
+            }
+        \end{beamercolorbox}
+    \end{beamercolorbox}
+    %
+    %   Vertical corrections and gold box separator
+    \vbox{}\vskip-0.128\paperheight
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.004\paperheight]{fine~separation~line}
+    \end{beamercolorbox}%
+}
 %
-%   Adjust the footline to include the department name
+%
+%
+%   Footline: Date - Title - Slide Count
 \setbeamertemplate{footline}{
-    \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em]{palette~primary}
-        \skip_vertical:n{0.3em}
-        \g_UWMadBeamer_Department_Short_tl{}
-        \tex_hfill:D{}
-        \g_UWMadBeamer_Institute_Short_tl{}
-        \skip_vertical:n{0.3em}
-    \end{beamercolorbox}
-    \begin{beamercolorbox}[leftskip=0.5em,rightskip=0.5em]{palette~tertiary}
-        \skip_vertical:n{0.3em}
-        \g_UWMadBeamer_Author_Short_tl{}
-        \tex_hfill:D{}
-        \g_UWMadBeamer_Title_Short_tl{}
-        \tex_hfill:D{}
-        \insertframenumber/\inserttotalframenumber
-        \skip_vertical:n{0.3em}
+    %
+    %   Vertical corrections and gold box separator
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.004\paperheight]{fine~separation~line}
+    \end{beamercolorbox}%
+    %
+    %   Encompassing box
+    \begin{beamercolorbox}{palette~tertiary}
+        %
+        %   Left, small box for date
+        \begin{beamercolorbox}
+            [wd=0.1\paperwidth,ht=0.024\paperheight,
+            dp=0.00266666\paperheight,leftskip=0.01\paperwidth]
+            {palette~tertiary}
+            \insertdate{}
+        \end{beamercolorbox}
+        %
+        %   Center, large box for title
+        \begin{beamercolorbox}
+            [center,wd=0.7999\paperwidth,
+            ht=0.024\paperheight,dp=0.00266666\paperheight]
+            {palette~tertiary}
+            \insertshorttitle{}
+        \end{beamercolorbox}
+        %
+        %   Right, small box for slide count
+        \begin{beamercolorbox}
+            [right,wd=0.1\paperwidth,ht=0.024\paperheight,
+            dp=0.00266666\paperheight,rightskip=0.01\paperwidth]
+            {palette~tertiary}
+            \insertframenumber/\inserttotalframenumber
+        \end{beamercolorbox}
+        %
+        %   Bit ox extra vertical space
+        \vbox{}\vskip0.01\paperheight
     \end{beamercolorbox}
 }
 %
+%
+%
+%   Display outline at start of every (sub)section.
+\AtBeginSection[]{
+    \begin{frame}<beamer>
+        \frametitle{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
 \AtBeginSubsection[]{
     \begin{frame}<beamer>
+        \frametitle{Outline}
         \tableofcontents[currentsection,currentsubsection]
     \end{frame}
 }
-%
 \setlength{\parskip}{0.5em}
 %
 \ExplSyntaxOff

@@ -17,9 +17,8 @@
 
 \title{Version Control Introduction}
 \institute{University of Wisconsin--Madison}
-\department{Engineering Physics Department}
 \author{Troy C. Haskin}
-\date{5/12/2014}
+\date{2015-09-17}
 
 
 \graphicspath{{./Graphics/}}
@@ -35,6 +34,7 @@
 %                         Titlepage                       %
 % ======================================================= %
 \begin{frame}
+    \frametitle{Outline}
     \titlepage
 \end{frame}
 
@@ -42,7 +42,7 @@
 % ======================================================= %
 %                         Outline                         %
 % ======================================================= %
-\begin{frame}
+\begin{frame}{Outline}
     \tableofcontents
 \end{frame}
 
@@ -154,11 +154,11 @@
     \begin{frame}{What is it?}
         \begin{description}
             \item
-                [{\usebeamercolor[fg]{frametitle} Definition}]
+                [{Definition}]
                 {A system that records changes to a file or set of files over time so that you can recall specific versions later.}
                 \textsuperscript
                     {{\usebeamercolor
-                        [fg]{frametitle}
+                        [bg]{frametitle}
                         \href
                             {http://git-scm.com/book/en/Getting-Started-About-Version-Control}
                             {src}}}
@@ -197,17 +197,17 @@
     \begin{frame}{Definitions {\small (Examples to follow)}}
         \begin{description}
             \setlength{\itemsep}{0.65em}
-            \item[{\usebeamercolor[fg]{frametitle} Repository}]
+            \item[{Repository}]
                 {A directory that holds all project files and VCS information.}
-            \item[{\usebeamercolor[fg]{frametitle} Commit}]
+            \item[{Commit}]
                 {A submission of changes from the user to the VCS; this creates a new version and saves the previous state in the history}
-            \item[{\usebeamercolor[fg]{frametitle} Commit Message}]
+            \item[{Commit Message}]
                 {A short/long description of the changes present in the commit.}
-            \item[{\usebeamercolor[fg]{frametitle} Branch}]
+            \item[{Branch}]
                 {A new, separate line of history starting from a certain version; changes can be made to a branch without affecting what it was branched from}
-            \item[{\usebeamercolor[fg]{frametitle} Diff}]
+            \item[{Diff}]
                 {A comparison of two files with line-by-line differences highlighted}
-            \item[{\usebeamercolor[fg]{frametitle} Sync/Push}]
+            \item[{Sync/Push}]
                 {A synchronization of a local repository with a non-local one}
         \end{description}
     \end{frame}
@@ -226,7 +226,7 @@
                 \begin{enumerate}
                     \item<2->{'Notes.txt' created.}
                     \item<3->{Added new note to 'Notes.txt'.}
-                    \item<4->{Added new file 'Classes.txt'. }
+                    \item<4->{Added new file 'Classes.txt'.}
                 \end{enumerate}
 
                 \only<1>{\hfill\textit{REPO Info. initially empty}}
@@ -249,7 +249,7 @@
     \end{frame}
 
     \begin{frame}[c]{Merge Example}
-        It is possible to {\usebeamercolor[fg]{frametitle}merge} histories in branches but can lead to {\usebeamercolor[fg]{frametitle} conflicts} (mismatched or ambiguous histories that require resolution).
+        It is possible to {\usebeamercolor[bg]{frametitle}merge} histories in branches but can lead to {\usebeamercolor[fg]{frametitle} conflicts} (mismatched or ambiguous histories that require resolution).
         
         {
             \centering
@@ -279,13 +279,13 @@
 % ======================================================= %
 \section{Git and GitHub}
 
-    \subsection{}
+    \subsection*{Dummy}
     \begin{frame}{The Program and the Website}
         \begin{description}
             \setlength{\itemsep}{0.65em}
-            \item[{\usebeamercolor[fg]{frametitle} Git}]
+            \item[{Git}]
                 {My VCS program of choice; created to manage one of the largest collaborative projects in history --- the Linux Kernel.}
-            \item[{\usebeamercolor[fg]{frametitle} GitHub}]
+            \item[{GitHub}]
                 {A website the allows online hosting of repositories and uses Git as its VCS.  Public repositories are completely free; private repositories cost money.}
         \end{description}
     \end{frame}
@@ -295,9 +295,9 @@
     \begin{frame}{GitHub Applications}
         \begin{description}
             \setlength{\itemsep}{0.65em}
-            \item[{\usebeamercolor[fg]{frametitle} GitHubWindows}]
+            \item[{GitHubWindows}]
                 {An application for Windows 7/8 that syncs repositories between a computer and GitHub}
-            \item[{\usebeamercolor[fg]{frametitle} GitHubMac}]
+            \item[{GitHubMac}]
                 {An application for OSX 10.7+ that syncs repositories between a computer and GitHub}
         \end{description}
         Both programs allow for creation, commits, branching, merging, and more.
@@ -314,29 +314,29 @@
     \begin{frame}{Thank You!}
 
         Links:
-        \begin{Itemize}
+        \begin{itemize}
             \setlength{\itemsep}{2em}
             \item   {
-                \usebeamercolor[fg]{frametitle}
+                \usebeamercolor[bg]{frametitle}
                 \href{https://github.com/troyhaskin} {Troy's GitHub Page}
             }
             \item   {
-                \usebeamercolor[fg]{frametitle}
+                \usebeamercolor[bg]{frametitle}
                 \href{https://github.com/ThermalHydraulicsLab} {THL's GitHub Page}
             }
             \item   {
-                \usebeamercolor[fg]{frametitle}
+                \usebeamercolor[bg]{frametitle}
                 \href{https://windows.github.com/} {GitHubWindows}
             }
             \item   {
-                \usebeamercolor[fg]{frametitle}
+                \usebeamercolor[bg]{frametitle}
                 \href{https://mac.github.com/} {GitHubMac}
             }
             \item   {
-                \usebeamercolor[fg]{frametitle}
+                \usebeamercolor[bg]{frametitle}
                 \href{https://raw.githubusercontent.com/ThermalHydraulicsLab/UWMadisonExperiment-RELAP5/master/.gitignore} {RELAP/MELCOR \texttt{.gitignore} file}
             }
-        \end{Itemize}
+        \end{itemize}
 
     \end{frame}
 
